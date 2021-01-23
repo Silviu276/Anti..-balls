@@ -2,12 +2,14 @@
 
 public class BallSpawn : MonoBehaviour
 {
-    // blue ball prefab
-    public GameObject blueBall;
-    // gets the mouse position
-    Vector2 mousePosition;
-    // blue ball parent
-    public Transform blueBalls;
+    /* -------------------
+     * spawns blue balls
+     * gets and updates the mouse position
+    ------------------- */
+
+    public GameObject blueBall; // blue ball prefab
+    Vector2 mousePosition; // gets the mouse position
+    public Transform blueBalls; // blue ball parent
 
     // update method
     private void Update()

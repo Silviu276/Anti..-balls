@@ -3,9 +3,12 @@ using UnityEngine;
 
 public class PowerupDrop : MonoBehaviour
 {
-    private float newLiveChance = 0.1f;
+    /* -------------------
+     * spawns hearts
+    ------------------- */
 
-    public GameObject newLiveObject;
+    private float newLiveChance = 0.1f; // new heart (life) 
+    public GameObject newLiveObject; // heart
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

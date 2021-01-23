@@ -2,46 +2,39 @@
 
 public class SpawnClones : MonoBehaviour
 {
-    // red ball prefab
-    public GameObject redBall;
+    /* -------------------
+     * sets the scene objects speed
+     * spawns red ball clones
+     * stores the score
+    ------------------- */
 
-    // red balls transform
-    public Transform redBalls;
-
-    // balls speed
-    public static float ballsSpeed = 4f;
-
-    // score
-    public static int score;
-    private bool b1, b2, b3;
+    public GameObject redBall; // red ball prefab
+    public Transform redBalls; // red balls transform
+    public static float ballsSpeed = 4f; // balls speed
+    public static int hits; // score
+    private bool b1, b2, b3; // checks what balls are in scene
 
     // start method
     private void Start()
     {
-        score = 0;
+        hits = 0;
         b1 = b2 = b3 = false;
-    }
-
-    // update method
-    private void Update()
-    {
-        SpawnRedBallClones();
     }
 
     // fixedupdate method
     private void FixedUpdate()
     {
-        ballsSpeed += 0.0003f;
+        ballsSpeed += 0.0003f; // increases all the scene objects speed
     }
 
     // verifies if it's the time to spawn another ball
-    private void SpawnRedBallClones()
+    public void SpawnRedBallClones()
     {
-        if (!b1 && score == 10)
+        if (!b1 && hits == 10)
         { b1 = true; Instantiate(redBall, redBalls); }
-        if (!b2 && score == 40)
+        if (!b2 && hits == 40)
         { b2 = true; Instantiate(redBall, redBalls); }
-        if (!b3 && score == 100)
+        if (!b3 && hits == 100)
         { b3 = true; Instantiate(redBall, redBalls); }
     }
 }
