@@ -29,9 +29,11 @@ public class GameManager : MonoBehaviour
     // start method
     private void Start()
     {
+        if (PlayerPrefs.GetInt("FirstOpening") == 0)
+            ShopItems.FirstOpening();
         Cursor.visible = false;
         pointer.SetActive(true);
-        lives = 1;
+        lives = PlayerPrefs.GetInt("StartLivesLevel");
         inGame = true;
         score = 0;
     }
@@ -41,7 +43,7 @@ public class GameManager : MonoBehaviour
     {
         livesText.text = $"x{lives} "; // updates lives amount
 
-        if (Input.GetKeyDown(KeyCode.R)) // optional - reloads the scene
+        if (Input.GetKeyDown(KeyCode.R)) // just for test - reloads the scene
         {
             SceneManager.LoadScene("GameScene");
             Time.timeScale = 1f;
@@ -55,16 +57,26 @@ public class GameManager : MonoBehaviour
             gameOver.gameObject.SetActive(true); // game over canvas shows up
             gameOverScore.text = $"SCORE\n{ScoreSpacing(score.ToString())}";
             gameOverScoreAnimator.SetBool("plays", true); // score animation plays
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") + score); // playtest
         }
 
-        if (Input.GetKeyDown(KeyCode.W) && Time.timeScale < 1.0f)
+        // just for test
+        /*if (Input.GetKeyDown(KeyCode.W) && Time.timeScale < 1.0f)
             Time.timeScale += 0.1f;
         else if (Input.GetKeyDown(KeyCode.S))
-            Time.timeScale -= 0.1f;
+            Time.timeScale -= 0.1f;*/
+
+        // just for test
+        if (Input.GetKeyDown(KeyCode.Escape))
+            SceneManager.LoadScene("ShopScene");
+
+        // just for test
+        if (Input.GetKeyDown(KeyCode.E))
+            Application.Quit();
     }
 
     // creates a space at every 3 decimals in a number for better readability
-    private static string ScoreSpacing(string textToBeSpaced)
+    public static string ScoreSpacing(string textToBeSpaced)
     {
         string spacedText = string.Empty;
         int contor = 0;

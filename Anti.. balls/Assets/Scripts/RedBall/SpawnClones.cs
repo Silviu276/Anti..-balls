@@ -10,7 +10,7 @@ public class SpawnClones : MonoBehaviour
 
     public GameObject redBall; // red ball prefab
     public Transform redBalls; // red balls transform
-    public static float ballsSpeed = 4f; // balls speed
+    public static float ballsSpeed; // balls speed
     public static int hits; // score
     private bool b1, b2, b3; // checks what balls are in scene
 
@@ -19,6 +19,7 @@ public class SpawnClones : MonoBehaviour
     {
         hits = 0;
         b1 = b2 = b3 = false;
+        ballsSpeed = 4f;
     }
 
     // fixedupdate method

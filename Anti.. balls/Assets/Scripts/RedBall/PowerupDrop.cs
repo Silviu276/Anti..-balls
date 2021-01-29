@@ -4,12 +4,20 @@ using UnityEngine;
 public class PowerupDrop : MonoBehaviour
 {
     /* -------------------
+     * stores powerup drop chances
      * spawns hearts
     ------------------- */
 
-    private float newLiveChance = 0.1f; // new heart (life) 
+    public static float newLiveChance; // new heart (life) 
     public GameObject newLiveObject; // heart
 
+    // start method
+    private void Start()
+    {
+        newLiveChance = (10f + (PlayerPrefs.GetInt("HeartChanceLevel") * 2f)) / 100f;
+    }
+
+    // enters collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "BlueBall")

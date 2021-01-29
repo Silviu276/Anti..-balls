@@ -10,6 +10,15 @@ public class BallSpawn : MonoBehaviour
     public GameObject blueBall; // blue ball prefab
     Vector2 mousePosition; // gets the mouse position
     public Transform blueBalls; // blue ball parent
+    public Transform trajectoryLine;
+    private int maxBlueBalls;
+
+    // start method
+    private void Start()
+    {
+        trajectoryLine.localScale = new Vector3(0.2f, PlayerPrefs.GetInt("TrajectoryLineLevel"), 1f);
+        maxBlueBalls = 10 + PlayerPrefs.GetInt("MaxBallsLevel");
+    }
 
     // update method
     private void Update()
@@ -21,7 +30,7 @@ public class BallSpawn : MonoBehaviour
     // spawns blue ball if you press the mouse button
     private void SpawnBlueBall()
     {
-        if (Input.GetButtonDown("Fire1") && blueBalls.childCount < 10)
+        if (Input.GetButtonDown("Fire1") && blueBalls.childCount < maxBlueBalls)
         {
             Instantiate(blueBall, new Vector2(transform.position.x, transform.position.y), 
                 Quaternion.identity, blueBalls);

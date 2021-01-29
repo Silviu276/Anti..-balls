@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -906,6 +906,7 @@ MonoBehaviour:
   blueBall: {fileID: 3220281910905256512, guid: 061ac75a17626314d96116f336f4d03e,
     type: 3}
   blueBalls: {fileID: 2096375108}
+  trajectoryLine: {fileID: 1936239792}
 --- !u!212 &1295518475
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1060,6 +1061,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RedBall
+      objectReference: {fileID: 0}
+    - target: {fileID: 418668728159662284, guid: fb38632d030736c438088883157436d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7220486989757190518, guid: fb38632d030736c438088883157436d1,
         type: 3}
@@ -1758,7 +1764,7 @@ Transform:
   m_GameObject: {fileID: 1936239791}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.45, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1295518476}
   m_RootOrder: 0
