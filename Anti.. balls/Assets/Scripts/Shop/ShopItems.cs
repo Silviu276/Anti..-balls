@@ -5,11 +5,7 @@ using UnityEngine.UI;
 
 public class ShopItems : MonoBehaviour
 {
-    /* i must get
-     * GameManager -> lives
-     * BallSpawn -> trajectoryLine.localScale
-     * BallSpawn -> maxBlueBalls
-     * PowerupDrop -> newLiveChance
+    /*
      */
 
     // item 1
@@ -24,10 +20,10 @@ public class ShopItems : MonoBehaviour
     // item 4
     public Text heartChanceLevels;
 
-    public Text moneyText; // playtest
+    public Text moneyText;
 
     // start method
-    private void Start()
+    private void Awake()
     {
         if (PlayerPrefs.GetInt("FirstOpening") == 0)
             FirstOpening();
@@ -36,11 +32,22 @@ public class ShopItems : MonoBehaviour
 
     public static void FirstOpening() // should execute when the player first ever enters the game
     {
+        // levels
         PlayerPrefs.SetInt("StartLivesLevel", 1);
         PlayerPrefs.SetInt("TrajectoryLineLevel", 0);
         PlayerPrefs.SetInt("MaxBallsLevel", 0);
         PlayerPrefs.SetInt("HeartChanceLevel", 0);
-        PlayerPrefs.SetInt("Money", 0); // playtest
+
+        // money
+        PlayerPrefs.SetInt("Money", 0);
+
+        // prices
+        PlayerPrefs.SetInt("StartLivesPrice", 5000); // price =  (level + 1) * (level + 1)* 5000
+        PlayerPrefs.SetInt("TrajectoryLinePrice", 2500); // price = 5000 + (level + 1) * 2500
+        PlayerPrefs.SetInt("MaxBallsPrice", 10000); // price = 9000 + (level + 1) * 1000
+        PlayerPrefs.SetInt("HeartChancePrice", 5000); // price = (level + 1) * 5000
+        
+
         PlayerPrefs.SetInt("FirstOpening", 1);
     }
 
@@ -50,7 +57,7 @@ public class ShopItems : MonoBehaviour
         trajectoryLineLevels.text = $"Level: {PlayerPrefs.GetInt("TrajectoryLineLevel")}/{ItemsChanges.trajectoryLineMaxLevel}";
         maxBallsLevels.text = $"Level: {PlayerPrefs.GetInt("MaxBallsLevel")}/{ItemsChanges.maxBallsMaxLevel}";
         heartChanceLevels.text = $"Level: {PlayerPrefs.GetInt("HeartChanceLevel")}/{ItemsChanges.heartChanceMaxLevel}";
-        moneyText.text = GameManager.ScoreSpacing(PlayerPrefs.GetInt("Money").ToString()) + "$"; // playtest
+        moneyText.text = GameManager.TextSpacing(PlayerPrefs.GetInt("Money").ToString()) + " $";
     }
 
     // update method

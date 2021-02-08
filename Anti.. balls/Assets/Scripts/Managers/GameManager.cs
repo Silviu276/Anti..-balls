@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
             Destroy(pointer);
             Destroy(blueBalls);
             gameOver.gameObject.SetActive(true); // game over canvas shows up
-            gameOverScore.text = $"SCORE\n{ScoreSpacing(score.ToString())}";
+            gameOverScore.text = $"SCORE\n{TextSpacing(score.ToString())}";
             gameOverScoreAnimator.SetBool("plays", true); // score animation plays
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") + score); // playtest
         }
@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
     }
 
     // creates a space at every 3 decimals in a number for better readability
-    public static string ScoreSpacing(string textToBeSpaced)
+    public static string TextSpacing(string textToBeSpaced)
     {
         string spacedText = string.Empty;
         int contor = 0;

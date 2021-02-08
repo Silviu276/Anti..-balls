@@ -61,7 +61,7 @@ public class BallCollision : MonoBehaviour
     // respawns redball at random position
     private void RespawnRedBall()
     {
-        transform.position = new Vector2(Random.Range(-8.6f, 8.6f), 7f);
+        transform.position = new Vector2(Random.Range(-8.3f, 8.3f), 7f);
     }
 
     // waits and respawns the ball if it hit a wall

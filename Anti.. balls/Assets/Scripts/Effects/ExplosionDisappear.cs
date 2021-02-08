@@ -10,6 +10,7 @@ public class ExplosionDisappear : MonoBehaviour
     // start method
     private void Start()
     {
+        StartCoroutine(CameraShake.ShakeCamera());
         StartCoroutine(Disappear());
     }
 
