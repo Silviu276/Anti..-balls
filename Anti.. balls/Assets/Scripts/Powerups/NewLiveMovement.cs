@@ -4,7 +4,7 @@ using UnityEngine;
 public class NewLiveMovement : MonoBehaviour
 {
     /* -------------------
-     * 
+     * all powerups movement
     ------------------- */
 
     private float speed; // the speed of the heart powerup
@@ -17,7 +17,7 @@ public class NewLiveMovement : MonoBehaviour
         speed = SpawnClones.ballsSpeed; // initializes heart speed
         rb = GetComponent<Rigidbody2D>();
         movement.y = -1f; // the heart will move down
-        transform.position = new Vector2(Random.Range(-8.6f, 8.6f), 7f); // spawns at random x and constant y
+        transform.position = new Vector2(Random.Range(-8.3f, 8.3f), 7f); // spawns at random x and constant y
     }
 
     // fixedupdate method

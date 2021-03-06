@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     public Text gameOverScore; // the text that shows the score at game over
 
     // start method
-    private void Start()
+    private void Awake()
     {
         if (PlayerPrefs.GetInt("FirstOpening") == 0)
             ShopItems.FirstOpening();

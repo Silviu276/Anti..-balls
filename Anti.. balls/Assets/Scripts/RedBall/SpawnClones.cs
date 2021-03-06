@@ -15,7 +15,7 @@ public class SpawnClones : MonoBehaviour
     private bool b1, b2, b3; // checks what balls are in scene
 
     // start method
-    private void Start()
+    private void Awake()
     {
         hits = 0;
         b1 = b2 = b3 = false;

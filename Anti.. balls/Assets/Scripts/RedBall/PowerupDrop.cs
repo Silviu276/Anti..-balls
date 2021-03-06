@@ -10,11 +10,14 @@ public class PowerupDrop : MonoBehaviour
 
     public static float newLiveChance; // new heart (life) 
     public GameObject newLiveObject; // heart
+    public static float twoBallsChance;
+    public GameObject twoBallsObject;
 
     // start method
     private void Start()
     {
         newLiveChance = (10f + (PlayerPrefs.GetInt("HeartChanceLevel") * 2f)) / 100f;
+        twoBallsChance = 5f / 100f;
     }
 
     // enters collision
@@ -25,6 +28,10 @@ public class PowerupDrop : MonoBehaviour
             if (Random.Range(0f, 1f) <= newLiveChance)
             {
                 Instantiate(newLiveObject);
+            }
+            if (Random.Range(0f, 1f) <= twoBallsChance)
+            {
+                Instantiate(twoBallsObject);
             }
         }
     }

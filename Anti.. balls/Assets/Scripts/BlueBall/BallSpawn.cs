@@ -32,7 +32,9 @@ public class BallSpawn : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") && blueBalls.childCount < maxBlueBalls)
         {
-            Instantiate(blueBall, new Vector2(transform.position.x, transform.position.y), 
+            Instantiate(blueBall, new Vector2(transform.position.x - 0.3f, transform.position.y), 
+                Quaternion.identity, blueBalls);
+            Instantiate(blueBall, new Vector2(transform.position.x + 0.3f, transform.position.y),
                 Quaternion.identity, blueBalls);
         }
     }
